@@ -1,12 +1,15 @@
-/* BASIC */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
-html {
-    background-color: #56baed;
+* {
+    font-family: 'Roboto', sans-serif;
 }
 
-body {
-    font-family: "Poppins", sans-serif;
-    height: 100vh;
+/* BASIC */
+html,
+.fadeInDown {
+    /* background-color: red;  */
+    /* background-repeat: no-repeat; */
+    background-image: url("https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/11/07/sede-de-hiberus.jpeg");
 }
 
 a {
@@ -27,6 +30,10 @@ h2 {
 }
 
 
+.encabezado-form {
+    font-size: 2em;
+    justify-self: center;
+}
 
 /* STRUCTURE */
 
@@ -63,7 +70,11 @@ h2 {
     border-radius: 0 0 10px 10px;
 }
 
-
+.label-form {
+    float: left;
+    padding-left: 2em;
+    /* margin-left: 2em; */
+}
 
 /* TABS */
 
@@ -184,7 +195,7 @@ input[type=password]:placeholder {
 
 /* ANIMATIONS */
 
-/* Simple CSS3 Fade-in-down Animation */
+/* Animacion de entrada login */
 .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
