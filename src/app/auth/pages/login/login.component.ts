@@ -25,16 +25,13 @@ export class LoginComponent {
   ) { }
 
   login() {
-    // console.log(this.miFormulario.value);
+    console.log(this.miFormulario.value);
     const { email, password } = this.miFormulario.value;
 
     this.authService.login(email, password)
-      .subscribe(resp => {
+      .subscribe( resp => {
         console.log(resp);
       });
-
-    // console.log(this.miFormulario.valid);
-    // this.router.navigateByUrl('/dashboard');
   }
 
 }
