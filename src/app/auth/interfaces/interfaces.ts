@@ -3,7 +3,12 @@ export interface AuthResponse {
     accessToken?: string;
     refreshToken?: string;
     tokenType?: string;
-    ok: boolean;
+    
+    name?: string;
+    surname?: string;
+    email?: string;
+    id?: string;
+
 
 }
 
@@ -14,8 +19,9 @@ export interface Usuario {
     accessToken: string;
     refreshToken?: string;
     tokenType?: string;
+    email?: string;
 
-    ok:boolean;
+    // ok:boolean;
 
 
 

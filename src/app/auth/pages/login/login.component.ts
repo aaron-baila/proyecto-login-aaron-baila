@@ -41,9 +41,14 @@ export class LoginComponent {
           ok = false;
         }
 
+        if(ok){
+          this.router.navigateByUrl('/dashboard')
+        }else{
+          //Mensaje error
+        }
 
-        console.log("El resp dice = " + resp);
-        console.log(" resultado = " + ok);
+        // console.log("El resp dice = " + resp);
+        console.log(ok);
       });
   }
 

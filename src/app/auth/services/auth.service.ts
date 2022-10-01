@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import { AuthResponse, Usuario } from '../interfaces/interfaces';
-import { map, catchError, of } from 'rxjs';
+import { map, catchError, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -36,10 +36,20 @@ export class AuthService {
 
     return this.http.post<AuthResponse>(url, body)
       .pipe(
-        // map(resp => resp.accessToken )
+        tap(r => {
+          if (r.accessToken) {
+            this._usuario = {
+              accessToken: r.accessToken!,
+              refreshToken: r.refreshToken!,
+              tokenType: r.tokenType!,
+              email: email!
+            }
+          }
+          console.log(r);
+        }),
         map(r => r.accessToken),
-        catchError ( err => of(""))
-        
+        catchError(err => of(""))
+
       );
 
   }
