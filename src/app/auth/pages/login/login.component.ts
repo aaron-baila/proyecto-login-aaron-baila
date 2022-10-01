@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
+import salert from 'sweetalert2';
+
 import { AuthService } from '../../services/auth.service';
 
 @Component({
@@ -27,7 +29,7 @@ export class LoginComponent {
 
   login() {
     // Creamos nuestro ok 
-    let ok: boolean;
+    let ok: boolean ;
     // let prueba: string = "prueba";
     // console.log(this.miFormulario.value);
     const { email, password } = this.miFormulario.value;
@@ -38,12 +40,15 @@ export class LoginComponent {
         if (resp) {
           ok = true;
         } else {
+          //No se ha podido iniciar sesion
           ok = false;
+          // alert("User email not found or password invalid");
+          salert.fire('Error',"User email not found or password invalid" );
         }
 
-        if(ok){
+        if (ok) {
           this.router.navigateByUrl('/dashboard')
-        }else{
+        } else {
           //Mensaje error
         }
 
