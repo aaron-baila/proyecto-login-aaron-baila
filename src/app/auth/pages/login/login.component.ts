@@ -24,13 +24,26 @@ export class LoginComponent {
     private authService: AuthService
   ) { }
 
+
   login() {
-    console.log(this.miFormulario.value);
+    // Creamos nuestro ok 
+    let ok: boolean;
+    // let prueba: string = "prueba";
+    // console.log(this.miFormulario.value);
     const { email, password } = this.miFormulario.value;
 
     this.authService.login(email, password)
-      .subscribe( resp => {
-        console.log(resp);
+      .subscribe(resp => {
+
+        if (resp) {
+          ok = true;
+        } else {
+          ok = false;
+        }
+
+
+        console.log("El resp dice = " + resp);
+        console.log(" resultado = " + ok);
       });
   }
 
