@@ -57,7 +57,7 @@ export class AuthService {
   }
 
   validarToken() {
-    //TODO Probar añadir token despues de url
+
     const url = `${this.baseUrl}/users/me`;
 
     const accessToken = localStorage.getItem('accessToken');
