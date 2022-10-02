@@ -15,11 +15,14 @@ export interface AuthResponse {
 export interface Usuario {
 
 
-
-    accessToken: string;
+    accessToken?: string;
     refreshToken?: string;
     tokenType?: string;
+    
+    name?: string;
+    surname?: string;
     email?: string;
+    id?: string;
 
     // ok:boolean;
 
