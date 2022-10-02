@@ -89,18 +89,8 @@ export class AuthService {
       );
 
   }
-  // validarToken() {
-  //   const accessToken = localStorage.getItem('accessToken');
 
-  //   const url = `${this.baseUrl}/users/me`;
-
-  //   console.log(accessToken);
-
-  //   const headers = new HttpHeaders({
-  //     'Content-Type': 'application/json',
-  //     'Authorization': `Bearer ${accessToken}`
-  //   })
-  //   return this.http.get(url, { headers: headers });
-
-  // }
+  logOut() {
+    localStorage.clear();
+  }
 }
