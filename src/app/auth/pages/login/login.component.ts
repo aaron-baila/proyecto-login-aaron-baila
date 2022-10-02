@@ -28,33 +28,35 @@ export class LoginComponent {
 
 
   login() {
-    // Creamos nuestro ok 
-    let ok: boolean ;
-    // let prueba: string = "prueba";
-    // console.log(this.miFormulario.value);
-    const { email, password } = this.miFormulario.value;
+    this.authService.validarToken()
+    .subscribe( console.log);
+    // // Creamos nuestro ok 
+    // let ok: boolean ;
+    // // let prueba: string = "prueba";
+    // // console.log(this.miFormulario.value);
+    // const { email, password } = this.miFormulario.value;
 
-    this.authService.login(email, password)
-      .subscribe(resp => {
+    // this.authService.login(email, password)
+    //   .subscribe(resp => {
 
-        if (resp) {
-          ok = true;
-        } else {
-          //No se ha podido iniciar sesion
-          ok = false;
-          // alert("User email not found or password invalid");
-          salert.fire('Error',"User email not found or password invalid" );
-        }
+    //     if (resp) {
+    //       ok = true;
+    //     } else {
+    //       //No se ha podido iniciar sesion
+    //       ok = false;
+    //       // alert("User email not found or password invalid");
+    //       salert.fire('Error',"User email not found or password invalid" );
+    //     }
 
-        if (ok) {
-          this.router.navigateByUrl('/dashboard')
-        } else {
-          //Mensaje error
-        }
+    //     if (ok) {
+    //       this.router.navigateByUrl('/dashboard')
+    //     } else {
+    //       //Mensaje error
+    //     }
 
-        // console.log("El resp dice = " + resp);
-        console.log(ok);
-      });
+    //     // console.log("El resp dice = " + resp);
+    //     console.log(ok);
+    //   });
   }
 
 }

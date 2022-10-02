@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import { AuthResponse, Usuario } from '../interfaces/interfaces';
@@ -38,6 +38,9 @@ export class AuthService {
       .pipe(
         tap(r => {
           if (r.accessToken) {
+
+            localStorage.setItem('accessToken', r.accessToken);
+
             this._usuario = {
               accessToken: r.accessToken!,
               refreshToken: r.refreshToken!,
@@ -51,6 +54,20 @@ export class AuthService {
         catchError(err => of(""))
 
       );
+  }
+
+  validarToken() {
+    //TODO Probar añadir token despues de url
+    const url = `${this.baseUrl}/users/me`;
+
+    const accessToken = localStorage.getItem('accessToken');
+    console.log(accessToken);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    })
+    return this.http.get(url, { headers: headers });
 
   }
 }
