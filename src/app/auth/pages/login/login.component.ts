@@ -28,6 +28,9 @@ export class LoginComponent {
 
 
   login() {
+    // this.authService.validarToken()
+    // .subscribe( resp => console.log());
+
     // Creamos nuestro ok 
     let ok: boolean ;
     // let prueba: string = "prueba";

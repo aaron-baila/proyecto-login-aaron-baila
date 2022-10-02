@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { environment } from '../../../environments/environment';
 import { AuthResponse, Usuario } from '../interfaces/interfaces';
-import { map, catchError, of, tap } from 'rxjs';
+import { map, catchError, of, tap, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +23,6 @@ export class AuthService {
 
   login(email: string, password: string) {
     // http://51.38.51.187:5050/api/v1/auth/log-in
-    //http//51.38.51.187:5050/api/v1/auth/log-in
 
     const url = `${this.baseUrl}/auth/log-in`;
 
@@ -37,7 +36,10 @@ export class AuthService {
     return this.http.post<AuthResponse>(url, body)
       .pipe(
         tap(r => {
+          //ACCESO TOKEN
           if (r.accessToken) {
+            //añadimos local storage
+            localStorage.setItem('accesToken', r.accessToken!);
             this._usuario = {
               accessToken: r.accessToken!,
               refreshToken: r.refreshToken!,
@@ -50,6 +52,23 @@ export class AuthService {
         map(r => r.accessToken),
         catchError(err => of(""))
 
+      );
+
+  }
+// Probamos con el any
+  validarToken(): Observable<any> {
+
+    const url = `${this.baseUrl}/users/me`;
+    const headers = new HttpHeaders()
+      .set('x-token', localStorage.getItem('token') || '');
+
+    return this.http.get<AuthResponse>(url, { headers })
+      .pipe(
+        map(resp => {
+
+          return resp.accessToken;
+        }),
+        catchError(err => of(false))
       );
 
   }
