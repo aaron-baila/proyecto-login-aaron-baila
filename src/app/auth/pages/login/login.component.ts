@@ -52,9 +52,6 @@ export class LoginComponent {
         } else {
           //Mensaje error
         }
-
-        // console.log("El resp dice = " + resp);
-        console.log(ok);
       });
   }
 

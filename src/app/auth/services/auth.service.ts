@@ -16,6 +16,32 @@ export class AuthService {
   //Añadimos el hhtp client para poder hacer peticiones
   constructor(private http: HttpClient) { }
 
+  //REGISTRO 
+  registro(name: string, surname: string, email: string, password: string) {
+
+    const url = `${this.baseUrl}/auth/sign-up`;
+    const body = { name, surname, email, password };
+    let mensaje = "";
+
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        tap(r => {
+          //r == null registro nuevo 
+          //r = vacio si registro repetido
+
+          if (r === null) {
+            mensaje = "Registro correcto";
+            // }else{
+            //   mensaje = "Registro ya existente";
+          }
+
+        }),
+        map(r => r.accessToken),
+        catchError(err => of(mensaje))
+      );
+  }
+
+
   get usuario() {
     return { ... this._usuario };
   }
@@ -26,14 +52,11 @@ export class AuthService {
     //http//51.38.51.187:5050/api/v1/auth/log-in
 
     const url = `${this.baseUrl}/auth/log-in`;
-
     const body = { email, password };
     // console.log("ESTO ES " + url + " Y TAMBIEN " + body.email + " " + body.password);
 
     //El subscribe lo haremos donde le llamemos
     //Recibiremos un Auth response
-
-
     return this.http.post<AuthResponse>(url, body)
       .pipe(
         tap(r => {
