@@ -1,12 +1,19 @@
-<h1>Dashboard</h1>
-<hr />
-<p>
-   Bienvenido {{usuario.name}}
-</p>
-<h4>
-    User info
-</h4>
-
-<pre>{{usuario | json}}</pre>
-
-<button class="btn btn-primary" (click)="logOut()"> LogOut</button>
+<div class="container">
+    <div>
+        <h1>Dashboard</h1>
+        <hr />
+    </div>
+    <div>
+        <h3>
+            Bienvenido {{usuario.name}}
+        </h3>
+        <h2>INFO</h2>
+        <ul>
+            <li>Nombre: {{usuario.name}}</li>
+            <li>Apellido: {{usuario.surname}}</li>
+            <li>ID: {{usuario.id}}</li>
+        </ul>
+    </div>
+    <button class="btn btn-primary" (click)="logOut()"> LogOut</button>
+    <!-- <button class="btn btn-primary" (click)="logOut()"> Users</button> -->
+</div>
