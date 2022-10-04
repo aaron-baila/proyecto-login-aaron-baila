@@ -13,6 +13,7 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _usuario!: Usuario;
 
+
   //Añadimos el hhtp client para poder hacer peticiones
   constructor(private http: HttpClient) { }
 
@@ -45,6 +46,7 @@ export class AuthService {
   get usuario() {
     return { ... this._usuario };
   }
+
 
 
   login(email: string, password: string) {
@@ -84,7 +86,7 @@ export class AuthService {
 
     const url = `${this.baseUrl}/users/me`;
 
-    console.log(accessToken);
+
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -115,5 +117,21 @@ export class AuthService {
 
   logOut() {
     localStorage.clear();
+  }
+
+
+  dameUsers() {
+    const accessToken = localStorage.getItem('accessToken');
+
+    const url = `${this.baseUrl}/users`;
+
+    console.log(accessToken);
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    });
+
+    return this.http.get(url, { headers });
   }
 }

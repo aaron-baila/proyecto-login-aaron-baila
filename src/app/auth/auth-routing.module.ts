@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { UsersPageComponent } from '../protected/users-page/users-page.component';
 
 const routes: Routes = [
 
@@ -14,6 +15,7 @@ const routes: Routes = [
       //este no nos deje volver a entrar sin pasar por el login sin autentificarnos
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegisterComponent },
+      { path: 'user', component: UsersPageComponent },
       { path: '**', redirectTo: 'login' },
 
     ]
