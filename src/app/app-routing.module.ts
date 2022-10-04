@@ -9,6 +9,7 @@ const routes: Routes = [
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
+    //DASHBOARD
     path: 'dashboard',
     loadChildren: () => import('./protected/protected.module').then(m => m.ProtectedModule),
     canActivate: [ValidarTokenGuard],

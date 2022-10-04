@@ -118,20 +118,4 @@ export class AuthService {
   logOut() {
     localStorage.clear();
   }
-
-
-  dameUsers() {
-    const accessToken = localStorage.getItem('accessToken');
-
-    const url = `${this.baseUrl}/users`;
-
-    console.log(accessToken);
-
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': `Bearer ${accessToken}`
-    });
-
-    return this.http.get(url, { headers });
-  }
 }
