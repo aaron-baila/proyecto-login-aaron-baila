@@ -21,11 +21,7 @@ export class UsersPageComponent {
       this.users = datos;
       console.log(this.users);
     })
-  }
 
-
-  objectKeys(objeto: any) {
-    const keys = Object.keys(objeto);
-    console.log(keys);
+    
   }
 }
