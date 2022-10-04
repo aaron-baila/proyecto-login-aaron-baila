@@ -1,7 +1,15 @@
-<p>users-page works!</p>
-<li>Nombres:</li>
-<tr *ngFor="let user of users.items">
-  <td>{{user.name}}</td>
-</tr>
-<div>
+<div class="container">
+  <h1>USUARIOS</h1>
+  <table class="table">
+    <tr>
+      <th>nombre</th>
+      <th>apellido</th>
+      <th>email</th>
+    </tr>
+    <tr *ngFor="let user of users.items">
+      <td>{{user.name}}</td>
+      <td>{{user.surname}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </table>
 </div>
