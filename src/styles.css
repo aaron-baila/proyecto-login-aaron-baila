@@ -387,3 +387,7 @@ td{
     padding: 1em;
     background-color: rgba(8, 151, 228, 0.112);
 }
+#btn-eliminar{
+    color:red;
+    background-color: rgba(255, 0, 0, 0.328);
+}
