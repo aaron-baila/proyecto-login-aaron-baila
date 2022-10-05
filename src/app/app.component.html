@@ -1,3 +1,5 @@
+<!-- <button mat-button *ngIf="!isHomePage()" routerLink="/home"> <span>Home</span> </button> -->
 
-<app-navbar></app-navbar>
+<!-- Solucion no salga el navbar en el inicio de sesion -->
+<app-navbar *ngIf="!isLoginPage()"></app-navbar>
 <router-outlet> </router-outlet>

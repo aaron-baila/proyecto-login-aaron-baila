@@ -1,7 +1,7 @@
 <div id="container-login" class="container">
     <form [formGroup]="miFormulario" (ngSubmit)="login()">
         <div class="encabezado-form">
-            Login
+            Iniciar sesión
         </div>
         <!-- EMAIL  -->
         <div>
@@ -20,8 +20,7 @@
         <!-- BOTON INICIAR  -->
         <!-- <input type="submit" class="fadeIn fourth" value="Iniciar"> -->
         <!-- Le ponemos el disabled si no es el formulario valido -->
-        <button type="submit" class="btn btn-primary" [disabled]="miFormulario.invalid">Iniciar</button>
-
+        <button  type="submit" class="btn btn-primary btn-form" [disabled]="miFormulario.invalid">Entrar</button>
         <!-- Registrarse -->
         <div id="formFooter">
             <span>¿No tienes cuenta? </span>

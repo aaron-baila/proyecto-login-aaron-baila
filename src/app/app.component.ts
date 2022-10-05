@@ -17,4 +17,8 @@ export class AppComponent {
   goToMenu() {
     this.router.navigate(['/menu']);
   }
+
+  isLoginPage(): boolean {
+    return window.location.href.includes("login"); // Or any equasions you like
+}
 }
