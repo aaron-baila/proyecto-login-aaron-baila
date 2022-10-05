@@ -15,10 +15,10 @@ export class RegisterComponent {
 
   miFormulario: FormGroup = this.fb.group({
     //Rellenamos los campos email y pass para hacer pruebas
-    name: ['pepe', [Validators.required, Validators.minLength(3)]],
-    surname: ['lopez', [Validators.required, Validators.minLength(3)]],
-    email: ['test2@test.com', [Validators.required, Validators.email]],
-    password: ['123456', [Validators.required, Validators.minLength(6)]],
+    name: ['', [Validators.required, Validators.minLength(3)]],
+    surname: ['', [Validators.required, Validators.minLength(3)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   constructor(

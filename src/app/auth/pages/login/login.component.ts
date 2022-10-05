@@ -16,8 +16,8 @@ export class LoginComponent {
 
   miFormulario: FormGroup = this.fb.group({
     //Rellenamos los campos email y pass para hacer pruebas
-    email: ['test2@test.com', [Validators.required, Validators.email]],
-    password: ['123456', [Validators.required, Validators.minLength(6)]],
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   constructor(
@@ -43,8 +43,8 @@ export class LoginComponent {
         } else {
           //No se ha podido iniciar sesion
           ok = false;
-          // alert("User email not found or password invalid");
-          salert.fire('Error', "User email not found or password invalid");
+          
+          salert.fire('Error', "Email o contraseña incorrecto");
         }
 
         if (ok) {
