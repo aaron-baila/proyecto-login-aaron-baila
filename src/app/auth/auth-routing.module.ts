@@ -13,9 +13,11 @@ const routes: Routes = [
     children: [
       //El redirect login sirve para si salimos del dashboard y ponemos cualquier cosa
       //este no nos deje volver a entrar sin pasar por el login sin autentificarnos
+
+      //AUTH
       { path: 'login', component: LoginComponent },
       { path: 'registro', component: RegisterComponent },
-      { path: 'user', component: UsersPageComponent },
+      // { path: 'user', component: UsersPageComponent },
       { path: '**', redirectTo: 'login' },
 
     ]

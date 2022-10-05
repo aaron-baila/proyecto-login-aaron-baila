@@ -375,3 +375,15 @@ input[type=password]:placeholder {
     top: 0;
     left: 0;
 }
+.card-users{
+    padding: 2em;
+}
+th{
+    background-color: rgba(19, 1, 183, 0.522);
+    padding: 1em;
+    color: white;
+}
+td{
+    padding: 1em;
+    background-color: rgba(8, 151, 228, 0.112);
+}

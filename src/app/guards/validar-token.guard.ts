@@ -17,7 +17,7 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
     return this.authService.validarToken()
       .pipe(
         tap(valid => {
-          console.log( "Canactivate " + valid);
+          console.log("Can activate " + valid);
           if (!valid) {
             //Mejorable que rediriga a pagina de error
             this.router.navigateByUrl('/auth');
@@ -32,7 +32,7 @@ export class ValidarTokenGuard implements CanActivate, CanLoad {
     return this.authService.validarToken()
       .pipe(
         tap(valid => {
-          console.log( "canloaf " + valid);
+          console.log("Can load " + valid);
           if (!valid) {
             //Mejorable que rediriga a pagina de error
             this.router.navigateByUrl('/auth');

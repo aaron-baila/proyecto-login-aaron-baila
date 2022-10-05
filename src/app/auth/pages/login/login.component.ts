@@ -6,17 +6,17 @@ import salert from 'sweetalert2';
 
 import { AuthService } from '../../services/auth.service';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styles: [
-  ]
+  styleUrls: ['./login.css']
 })
 export class LoginComponent {
 
   miFormulario: FormGroup = this.fb.group({
     //Rellenamos los campos email y pass para hacer pruebas
-    email: ['test1@test.com', [Validators.required, Validators.email]],
+    email: ['test2@test.com', [Validators.required, Validators.email]],
     password: ['123456', [Validators.required, Validators.minLength(6)]],
   });
 
@@ -48,7 +48,7 @@ export class LoginComponent {
         }
 
         if (ok) {
-          this.router.navigateByUrl('/dashboard')
+          this.router.navigateByUrl('/menu')
         } else {
           //Mensaje error
         }

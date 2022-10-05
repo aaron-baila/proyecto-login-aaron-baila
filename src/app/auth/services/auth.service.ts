@@ -13,6 +13,8 @@ export class AuthService {
   private baseUrl: string = environment.baseUrl;
   private _usuario!: Usuario;
 
+  private isLogin = false;
+
 
   //Añadimos el hhtp client para poder hacer peticiones
   constructor(private http: HttpClient) { }
@@ -50,6 +52,10 @@ export class AuthService {
 
 
   login(email: string, password: string) {
+
+    //IS LOGIN TRUE PARA EL NAVBAR
+    this.isLogin = true;
+
     // http://51.38.51.187:5050/api/v1/auth/log-in
     //http//51.38.51.187:5050/api/v1/auth/log-in
 
@@ -79,6 +85,7 @@ export class AuthService {
         catchError(err => of(""))
 
       );
+
   }
 
   validarToken(): Observable<boolean> {
@@ -117,5 +124,10 @@ export class AuthService {
 
   logOut() {
     localStorage.clear();
+    this.isLogin = false;
+  }
+
+  get _isLogin() {
+    return this.isLogin;
   }
 }

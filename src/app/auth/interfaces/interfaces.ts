@@ -14,7 +14,6 @@ export interface AuthResponse {
 
 export interface Usuario {
 
-
     accessToken?: string;
     refreshToken?: string;
     tokenType?: string;
@@ -23,15 +22,5 @@ export interface Usuario {
     surname?: string;
     email?: string;
     id?: string;
-
-    // ok:boolean;
-
-
-
-    // name?: string;
-    // surname?: string;
-    // email?: string;
-    // id?: string;
-
     
 }

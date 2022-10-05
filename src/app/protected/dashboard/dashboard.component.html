@@ -1,19 +1,19 @@
-<div class="container">
-    <div>
+<div class="wrapper fadeInDown">
+    <div  class="card card-users">
         <h1>Dashboard</h1>
         <hr />
+        <div>
+            <h3>
+                Bienvenido {{usuario.name}}
+            </h3>
+            <h2>INFO</h2>
+            <ul>
+                <li>Nombre: {{usuario.name}}</li>
+                <li>Apellido: {{usuario.surname}}</li>
+                <li>ID: {{usuario.id}}</li>
+            </ul>
+        </div>
     </div>
-    <div>
-        <h3>
-            Bienvenido {{usuario.name}}
-        </h3>
-        <h2>INFO</h2>
-        <ul>
-            <li>Nombre: {{usuario.name}}</li>
-            <li>Apellido: {{usuario.surname}}</li>
-            <li>ID: {{usuario.id}}</li>
-        </ul>
-    </div>
-    <button class="btn btn-primary" (click)="logOut()"> LogOut</button>
+    <!-- <button class="btn btn-primary" (click)="logOut()"> LogOut</button> -->
     <!-- <button class="btn btn-primary" (click)="logOut()"> Users</button> -->
 </div>
