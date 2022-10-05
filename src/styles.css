@@ -369,29 +369,36 @@ input[type=password]:placeholder {
 }
 
 #header {
-/* display: flex; */
+    /* display: flex; */
 }
-#boton-salir{
+
+#boton-salir {
     top: 0;
     left: 0;
 }
-.card-users{
+
+.card-users {
     padding: 2em;
 }
-th{
+
+th {
     background-color: rgba(19, 1, 183, 0.522);
     padding: 1em;
     color: white;
 }
-td{
+
+td {
     padding: 1em;
     background-color: rgba(8, 151, 228, 0.112);
 }
-#btn-eliminar{
-    color:red;
+
+#btn-eliminar {
+    color: red;
     background-color: rgba(255, 0, 0, 0.328);
 }
-.btn-form{
+
+.btn-form {
     margin-bottom: 1em;
     margin-top: 1em;
 }
+

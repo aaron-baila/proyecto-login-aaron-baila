@@ -19,6 +19,6 @@ export class AppComponent {
   }
 
   isLoginPage(): boolean {
-    return window.location.href.includes("login"); // Or any equasions you like
-}
+    return window.location.href.includes("auth");
+  }
 }
