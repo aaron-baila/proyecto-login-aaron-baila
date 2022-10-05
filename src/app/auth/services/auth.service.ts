@@ -90,10 +90,7 @@ export class AuthService {
 
   validarToken(): Observable<boolean> {
     const accessToken = localStorage.getItem('accessToken');
-
     const url = `${this.baseUrl}/users/me`;
-
-
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
@@ -103,14 +100,8 @@ export class AuthService {
     return this.http.get<AuthResponse>(url, { headers: headers })
       .pipe(
         map(resp => {
-
-
-          // localStorage.setItem('accessToken', resp.accessToken!);
           localStorage.setItem('accessToken', accessToken!);
           this._usuario = {
-            // accessToken: resp.accessToken!,
-            // refreshToken: resp.refreshToken!,
-            // tokenType: resp.tokenType!,
             name: resp.name!,
             surname: resp.surname!,
             id: resp.id!
