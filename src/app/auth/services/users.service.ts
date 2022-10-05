@@ -30,4 +30,18 @@ export class UsersService {
 
     return this.http.get(url, { headers });
   }
+
+  eliminarUser(id: string) {
+    const accessToken = localStorage.getItem('accessToken');
+    const url = `${this.baseUrl}/users/` + id;
+
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${accessToken}`
+    });
+
+    this.http.delete(url, { headers })
+      .subscribe((ok) => { console.log(ok) });
+
+  }
 }

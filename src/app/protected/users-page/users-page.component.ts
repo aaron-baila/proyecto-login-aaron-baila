@@ -32,10 +32,12 @@ export class UsersPageComponent {
       confirmButtonText: 'Eliminar',
       denyButtonText: `No eliminar`,
     }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
       if (result.isConfirmed) {
-        salert.fire('Eliminado!', '', 'success')
+        this.usersService.eliminarUser(id);
+        salert.fire('Eliminado!', '', 'success');
       }
     })
+
+
   }
 }
