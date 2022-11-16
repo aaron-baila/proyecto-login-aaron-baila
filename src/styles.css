@@ -1,15 +1,18 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); */
 
 * {
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto', sans-serif; */
 }
 
 /* BASIC */
-html,
-.fadeInDown {
-    /* background-color: red;  */
-    /* background-repeat: no-repeat; */
-    background-image: url("https://imagenes.20minutos.es/files/og_thumbnail/uploads/imagenes/2020/11/07/sede-de-hiberus.jpeg");
+
+html, .fadeInDown {
+
+    background-image: url("assets/images/fiat-500-4322521_960_720.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 80em;
 }
 
 a {
@@ -233,23 +236,24 @@ input[type=password]:placeholder {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
-    animation-duration: 1s;
+    animation-duration: 2s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
+    
 }
 
 @-webkit-keyframes fadeInDown {
-    0% {
+    /* 0% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
-    }
+    } */
 
-    100% {
+    /* 100% {
         opacity: 1;
         -webkit-transform: none;
         transform: none;
-    }
+    } */
 }
 
 @keyframes fadeInDown {
@@ -298,7 +302,7 @@ input[type=password]:placeholder {
 }
 
 .fadeIn {
-    opacity: 0;
+    /* opacity: 0;
     -webkit-animation: fadeIn ease-in 1;
     -moz-animation: fadeIn ease-in 1;
     animation: fadeIn ease-in 1;
@@ -309,10 +313,10 @@ input[type=password]:placeholder {
 
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
-    animation-duration: 1s;
+    animation-duration: 1s; */
 }
 
-.fadeIn.first {
+/* .fadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
@@ -334,7 +338,7 @@ input[type=password]:placeholder {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
-}
+} */
 
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
@@ -349,7 +353,7 @@ input[type=password]:placeholder {
 }
 
 .underlineHover:hover {
-    color: #0d0d0d;
+    text-decoration-line: none;
 }
 
 .underlineHover:hover:after {
@@ -401,4 +405,3 @@ td {
     margin-bottom: 1em;
     margin-top: 1em;
 }
-

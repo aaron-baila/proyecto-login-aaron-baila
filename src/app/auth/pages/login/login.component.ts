@@ -28,31 +28,37 @@ export class LoginComponent {
 
 
   login() {
-
-    // Creamos nuestro ok 
-    let ok: boolean;
-    // let prueba: string = "prueba";
-    // console.log(this.miFormulario.value);
+    console.log(this.miFormulario.value);
     const { email, password } = this.miFormulario.value;
 
     this.authService.login(email, password)
-      .subscribe(resp => {
-
-        if (resp) {
-          ok = true;
-        } else {
-          //No se ha podido iniciar sesion
-          ok = false;
-          
-          salert.fire('Error', "Email o contraseña incorrecto");
-        }
-
-        if (ok) {
-          this.router.navigateByUrl('/menu')
-        } else {
-          //Mensaje error
-        }
+      .subscribe(respuesta => {
+        console.log(respuesta);
       });
-  }
+    //   // Creamos nuestro ok 
+    //   let ok: boolean;
+    //   // let prueba: string = "prueba";
+    //   // console.log(this.miFormulario.value);
+    //   const { email, password } = this.miFormulario.value;
 
+    //   this.authService.login(email, password)
+    //     .subscribe(resp => {
+
+    //       if (resp) {
+    //         ok = true;
+    //       } else {
+    //         //No se ha podido iniciar sesion
+    //         ok = false;
+
+    //         salert.fire('Error', "Email o contraseña incorrecto");
+    //       }
+
+    //       if (ok) {
+    //         this.router.navigateByUrl('/menu')
+    //       } else {
+    //         //Mensaje error
+    //       }
+    //     });
+    // }
+  }
 }
