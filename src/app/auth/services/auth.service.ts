@@ -18,7 +18,7 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
   private baseUrl: string = environment.baseUrl;
   private _usuario!: Usuario;
 
-  getUsuario() {
+  get usuario() {
     return { ...this._usuario };
   }
 
