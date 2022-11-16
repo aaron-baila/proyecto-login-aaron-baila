@@ -12,8 +12,15 @@ import { map, catchError, of, tap, Observable } from 'rxjs';
 export class AuthService {//Que no sea importado de produccion ya que cuando sea necesario el de prod angular se encargara de ello
 
 
-  private baseUrl: string = environment.baseUrl;
 
+
+
+  private baseUrl: string = environment.baseUrl;
+  private _usuario!: Usuario;
+
+  getUsuario() {
+    return { ...this._usuario };
+  }
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +30,18 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
     const url = `${this.baseUrl}/auth`;
     const body = { email, password };
 
-    return this.http.post<AuthResponse>(url, body);
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        tap(respuesta => { 
+          if(respuesta.ok){
+            this._usuario = {
+              name: respuesta.name!,
+              uid: respuesta.uid!
+            }
+          }
+        }),
+        map(respuesta => respuesta.ok),
+        catchError(err => of(false))
+      );
   }
 }
