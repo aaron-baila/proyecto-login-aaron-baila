@@ -1,19 +1,12 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap');
 
 * {
-    /* font-family: 'Roboto', sans-serif; */
+    font-family: 'Roboto', sans-serif;
 }
 
 /* BASIC */
 
-html, .fadeInDown {
 
-    background-image: url("assets/images/fiat-500-4322521_960_720.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: 80em;
-}
 
 a {
     color: #92badd;
@@ -47,7 +40,9 @@ h2 {
     justify-content: center;
     width: 100%;
     min-height: 100%;
-    padding: 20px;
+    padding: 5em;
+
+    
 }
 
 #formContent {
@@ -71,6 +66,7 @@ h2 {
     text-align: center;
     -webkit-border-radius: 0 0 10px 10px;
     border-radius: 0 0 10px 10px;
+    margin-bottom: 25px;
 }
 
 .label-form {
@@ -232,28 +228,27 @@ input[type=password]:placeholder {
 /* ANIMATIONS */
 
 /* Animacion de entrada login */
-.fadeInDown {
+/* .fadeInDown {
     -webkit-animation-name: fadeInDown;
     animation-name: fadeInDown;
     -webkit-animation-duration: 1s;
-    animation-duration: 2s;
+    animation-duration: 1s;
     -webkit-animation-fill-mode: both;
     animation-fill-mode: both;
-    
 }
 
 @-webkit-keyframes fadeInDown {
-    /* 0% {
+    0% {
         opacity: 0;
         -webkit-transform: translate3d(0, -100%, 0);
         transform: translate3d(0, -100%, 0);
-    } */
+    }
 
-    /* 100% {
+    100% {
         opacity: 1;
         -webkit-transform: none;
         transform: none;
-    } */
+    }
 }
 
 @keyframes fadeInDown {
@@ -299,10 +294,10 @@ input[type=password]:placeholder {
     to {
         opacity: 1;
     }
-}
+} */
 
 .fadeIn {
-    /* opacity: 0;
+    opacity: 0;
     -webkit-animation: fadeIn ease-in 1;
     -moz-animation: fadeIn ease-in 1;
     animation: fadeIn ease-in 1;
@@ -313,10 +308,10 @@ input[type=password]:placeholder {
 
     -webkit-animation-duration: 1s;
     -moz-animation-duration: 1s;
-    animation-duration: 1s; */
+    animation-duration: 1s;
 }
 
-/* .fadeIn.first {
+.fadeIn.first {
     -webkit-animation-delay: 0.4s;
     -moz-animation-delay: 0.4s;
     animation-delay: 0.4s;
@@ -338,7 +333,7 @@ input[type=password]:placeholder {
     -webkit-animation-delay: 1s;
     -moz-animation-delay: 1s;
     animation-delay: 1s;
-} */
+}
 
 /* Simple CSS3 Fade-in Animation */
 .underlineHover:after {
@@ -353,7 +348,8 @@ input[type=password]:placeholder {
 }
 
 .underlineHover:hover {
-    text-decoration-line: none;
+    /* color: #0d0d0d; */
+    text-decoration: none;
 }
 
 .underlineHover:hover:after {
@@ -405,3 +401,4 @@ td {
     margin-bottom: 1em;
     margin-top: 1em;
 }
+
