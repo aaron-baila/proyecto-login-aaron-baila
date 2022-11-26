@@ -33,10 +33,6 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
           //TODO OK
           if (respuesta.ok) {
             localStorage.setItem('token', respuesta.token!);
-            this._usuario = {
-              name: respuesta.name!,
-              uid: respuesta.uid!
-            }
           }
         }),
         map(respuesta => respuesta.ok),
@@ -58,7 +54,8 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
           localStorage.setItem('token', respuesta.token!);
           this._usuario = {
             name: respuesta.name!,
-            uid: respuesta.uid!
+            uid: respuesta.uid!,
+            email: respuesta.email!
           }
           return respuesta.ok;
         }),
@@ -66,27 +63,23 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
       );
   }
 
-  logOut(){
+  logOut() {
     //TODO cuando tengamos token no poder acceder al login
     //Si queremos dejar algo como el recordar usuario o algo asi se cambiaria 
     localStorage.clear();
   }
 
-  registro(name: string, email: string, password: string){
+  registro(name: string, email: string, password: string) {
 
     const url = `${this.baseUrl}/auth/register`;
     const body = { name, email, password };
 
     return this.http.post<AuthResponse>(url, body)
       .pipe(
-        tap(respuesta => {
+        tap(({ ok, token }) => {
           //TODO OK
-          if (respuesta.ok) {
-            localStorage.setItem('token', respuesta.token!);
-            this._usuario = {
-              name: respuesta.name!,
-              uid: respuesta.uid!
-            }
+          if (ok) {
+            localStorage.setItem('token', token!);
           }
         }),
         map(respuesta => respuesta.ok),
