@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MainComponent } from './pages/main/main.component';
 import { LoginComponent } from './pages/login/login.component';
-// import { RegisterComponent } from './pages/register/register.component';
+
 import { UsersPageComponent } from '../protected/users-page/users-page.component';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
 
@@ -16,7 +17,7 @@ const routes: Routes = [
 
       //AUTH
       { path: 'login', component: LoginComponent },
-      // { path: 'registro', component: RegisterComponent },
+      { path: 'registro', component: RegistroComponent },
       // { path: 'user', component: UsersPageComponent },
       { path: '**', redirectTo: 'login' },
 

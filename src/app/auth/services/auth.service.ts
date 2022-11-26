@@ -12,9 +12,6 @@ import { map, catchError, of, tap, Observable } from 'rxjs';
 export class AuthService {//Que no sea importado de produccion ya que cuando sea necesario el de prod angular se encargara de ello
 
 
-
-
-
   private baseUrl: string = environment.baseUrl;
   private _usuario!: Usuario;
 
@@ -66,6 +63,34 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
           return respuesta.ok;
         }),
         catchError(err => of(false))
+      );
+  }
+
+  logOut(){
+    //TODO cuando tengamos token no poder acceder al login
+    //Si queremos dejar algo como el recordar usuario o algo asi se cambiaria 
+    localStorage.clear();
+  }
+
+  registro(name: string, email: string, password: string){
+
+    const url = `${this.baseUrl}/auth/registro`;
+    const body = { name, email, password };
+
+    return this.http.post<AuthResponse>(url, body)
+      .pipe(
+        tap(respuesta => {
+          //TODO OK
+          if (respuesta.ok) {
+            localStorage.setItem('token', respuesta.token!);
+            this._usuario = {
+              name: respuesta.name!,
+              uid: respuesta.uid!
+            }
+          }
+        }),
+        map(respuesta => respuesta.ok),
+        catchError(err => of(err.error.msg))
       );
   }
 }

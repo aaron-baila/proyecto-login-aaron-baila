@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
@@ -28,8 +28,6 @@ export class LoginComponent {
 
 
   login() {
-
-
     console.log(this.miFormulario.value);
     const { email, password } = this.miFormulario.value;
 
