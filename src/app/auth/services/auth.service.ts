@@ -74,7 +74,7 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
 
   registro(name: string, email: string, password: string){
 
-    const url = `${this.baseUrl}/auth/registro`;
+    const url = `${this.baseUrl}/auth/register`;
     const body = { name, email, password };
 
     return this.http.post<AuthResponse>(url, body)

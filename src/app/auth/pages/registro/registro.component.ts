@@ -31,10 +31,11 @@ export class RegistroComponent {
 
     this.authService.registro(name, email, password)
       .subscribe(ok => {
+        
         if (ok === true) {
           salert.fire('Info', email + " \nRegistrado correctamente", 'info');
         } else {
-          salert.fire('Error', ok, 'error');
+          salert.fire('Error al registrase', ok, 'error');
         }
 
       });
