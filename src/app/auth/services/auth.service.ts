@@ -32,8 +32,10 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
 
     return this.http.post<AuthResponse>(url, body)
       .pipe(
-        tap(respuesta => { 
-          if(respuesta.ok){
+        tap(respuesta => {
+          //TODO OK
+          if (respuesta.ok) {
+            localStorage.setItem('token', respuesta.token!);
             this._usuario = {
               name: respuesta.name!,
               uid: respuesta.uid!
@@ -41,6 +43,28 @@ export class AuthService {//Que no sea importado de produccion ya que cuando sea
           }
         }),
         map(respuesta => respuesta.ok),
+        catchError(err => of(err.error.msg))
+      );
+
+
+    //VALIDAR TOKEN
+  }
+  validarToken(): Observable<boolean> {
+
+    const url = `${this.baseUrl}/auth/renew`;
+    const headers = new HttpHeaders()
+      .set('x-token', localStorage.getItem('token') || '');
+
+    return this.http.get<AuthResponse>(url, { headers })
+      .pipe(
+        map(respuesta => {
+          localStorage.setItem('token', respuesta.token!);
+          this._usuario = {
+            name: respuesta.name!,
+            uid: respuesta.uid!
+          }
+          return respuesta.ok;
+        }),
         catchError(err => of(false))
       );
   }
